@@ -9,27 +9,34 @@ Al termine della partita il software deve comunicare il punteggio,
 
 // array contenente i 16 numeri random
 var numero = [];
-for(var i = 1; i <= 16; i++){
+for(var i=1;i<=16;i++){
   numero.push(generaNum(100,1));
 }
-  console.log(numero);
+console.log(numero);
 // ciclo inserimento numeri da utente
-var inserisci;punteggio = 0;
+var inserisci;
+var punteggio = 0;
 for (var j = 1; j < 85; j++){
   inserisci = parseInt(prompt( "Inserisci un numero" ));
+  if(isNaN(inserisci)){
+    alert("non è un numero");
+    punteggio -= 1;
+    j--;
+  }
   console.log( "numero " + j + ":" + inserisci );
+
   for(var k = 0; k < 16; k++){
     // condizione di termine ciclo
   if(inserisci === numero[k] ){
     alert("trovato");
-    j = 100;
-    punteggio = punteggio -1;
+    j = 85;
+    punteggio -= 1;
     break;
   }
 }
-  punteggio = punteggio + 1;
+  punteggio += 1;
 }
-console.log(punteggio);
+console.log("Hai ottenuto un punteggio di :"+ punteggio);
 
 
 
