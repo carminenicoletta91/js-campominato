@@ -13,30 +13,36 @@ for(var i=1;i<=16;i++){
   numero.push(generaNum(100,1));
 }
 console.log(numero);
-// ciclo inserimento numeri da utente
-var inserisci;
-var punteggio = 0;
-for (var j = 1; j < 85; j++){
-  inserisci = parseInt(prompt( "Inserisci un numero" ));
-  if(isNaN(inserisci)){
-    alert("non è un numero");
-    punteggio -= 1;
-    j--;
-  }
-  console.log( "numero " + j + ":" + inserisci );
 
-  for(var k = 0; k < 16; k++){
-    // condizione di termine ciclo
-  if(inserisci === numero[k] ){
-    alert("trovato");
-    j = 85;
-    punteggio -= 1;
-    break;
-  }
-}
-  punteggio += 1;
-}
-console.log("Hai ottenuto un punteggio di :"+ punteggio);
+
+var punteggio = 0;
+
+var j = 1;
+
+var trovato = false;
+// ciclo inserimento numeri da utente
+ while (j < 85 && trovato == false ){
+   var inserisci = parseInt(prompt( "Inserisci un numero" ));
+   while (isNaN (inserisci) ){
+     alert( "Npn è un numero" );
+     inserisci = parseInt(prompt( "Inserisci un numero" ));
+   }
+   console.log("Il numero inserito è:" + inserisci);
+   var k = 0;
+   while (k  < numero.length && trovato == false){
+     if (inserisci === numero[k]){
+       alert("Trovato");
+       trovato = true;
+       console.log("Il punteggio finale e':"+punteggio);
+     }
+     k++;
+   }
+   if(trovato == false){
+     punteggio += 1;
+   }
+    console.log("la j vale:" + j);
+    j++;
+ }
 
 
 
