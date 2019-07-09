@@ -41,6 +41,7 @@ for(var i=1;i<=16;i++){
 console.log(numero);
 
 
+
 var punteggio = 0;
 
 var j = 1;
@@ -50,7 +51,7 @@ var trovato = false;
  while (j <= termine && trovato == false ){
    var inserisci = parseInt(prompt( "Inserisci un numero" ));
    while (isNaN (inserisci) ){
-     alert( "Npn è un numero" );
+     alert( "Non è un numero" );
      inserisci = parseInt(prompt( "Inserisci un numero" ));
    }
    console.log("Il numero inserito è:" + inserisci);
@@ -59,18 +60,21 @@ var trovato = false;
      if (inserisci === numero[k]){
        alert("Trovato");
        trovato = true;
-       console.log("Il punteggio finale e':"+punteggio);
+       document.getElementById('punteggio_ottenuto').innerHTML = punteggio;
+       document.getElementById('morto').innerHTML = "SEI MORTO";
+
      }
      k++;
    }
    if(trovato == false){
      punteggio += 1;
+     temp = document.getElementById("inseriti").innerHTML;
+     document.getElementById('inseriti').innerHTML = temp + "<li>" + inserisci +"</li>";
+
    }
 
     j++;
  }
-
-
 
 // creo funzione per generare numeri random
 function generaNum(max , min) {
