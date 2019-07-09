@@ -8,17 +8,17 @@ Al termine della partita il software deve comunicare il punteggio,
   cioè il numero di volte che l’utente ha inserito un numero consentito.*/
 
 // array contenente i 16 numeri random
-var numero=[];
-for(var i=1;i<=16;i++){
+var numero = [];
+for(var i = 1; i <= 16; i++){
   numero.push(generaNum(100,1));
 }
   console.log(numero);
 // ciclo inserimento numeri da utente
-var inserisci;punteggio=0;
-for (var j=1;j<85;j++){
-  inserisci=parseInt(prompt("INserisci un numero"));
-  console.log("numero "+ j + ":"+ inserisci);
-  for(var k=0;k<16;k++){
+var inserisci;punteggio = 0;
+for (var j = 1; j < 85; j++){
+  inserisci = parseInt(prompt( "Inserisci un numero" ));
+  console.log( "numero " + j + ":" + inserisci );
+  for(var k = 0; k < 16; k++){
     // condizione di termine ciclo
   if(inserisci === numero[k] ){
     alert("trovato");
@@ -27,7 +27,7 @@ for (var j=1;j<85;j++){
     break;
   }
 }
-  punteggio=punteggio+1;
+  punteggio = punteggio + 1;
 }
 console.log(punteggio);
 
